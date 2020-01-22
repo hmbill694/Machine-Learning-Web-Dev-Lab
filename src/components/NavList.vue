@@ -26,22 +26,22 @@ export default {
         routerLink: '/'
       },
       {
-        text: 'wine classifier',
-        icon: 'mdi-glass-wine',
-        description: `Based on 5 characteristics will determine if a wine is red or white.`,
-        routerLink: 'wine-classifier'
+        text: 'Cancer Predictor',
+        icon: 'mdi-charity',
+        description: `Based on several factors this predictor will identify potential breast cancer`,
+        routerLink: 'cancer-predictor'
       },
       {
         text: 'About the frontend',
         icon: 'mdi-flip-to-front',
         description: 'See how I made the frontend.',
-        routerLink: 'wine-classifier'
+        routerLink: 'cancer-predictor'
       },
       {
         text: 'About the backend',
         icon: 'mdi-flip-to-back',
         description: 'Learn how I made the backend and implemented it.',
-        routerLink: 'wine-classifier'
+        routerLink: 'cancer-predictor'
       }
     ]
   }),

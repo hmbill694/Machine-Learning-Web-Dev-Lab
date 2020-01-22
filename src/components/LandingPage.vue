@@ -86,9 +86,9 @@ export default {
                 I'm not quite sure yet.`
       },
       {
-        title: `The Wine Picker`,
-        content: `This application will tell if a given mystery wine is red or white
-                based on some given data. This is the first neural network that I have ever made
+        title: `The Cancer Predictor`,
+        content: `This application will tell if a given presentation of an a finding during a breast exam has the potential to be cancerous
+                based on some provided  data. This is the first neural network that I have ever made
                 from scratch and serves mostly as a way for me to really hammer out the way in which
                 these networks function`
       }

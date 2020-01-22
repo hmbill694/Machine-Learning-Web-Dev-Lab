@@ -14,13 +14,13 @@
 import GenericComp from './bodyComps/GenericComp'
 import { mapState } from 'vuex'
 export default {
-  name: 'WineClassifier',
+  name: 'CancerPredictor',
   components: {
     GenericComp
   },
   data: () => ({}),
   computed: {
-    ...mapState([
+    ...mapState('cancerPredictor', [
       'cancerMarkers',
       'cancerPatients',
       'title',
