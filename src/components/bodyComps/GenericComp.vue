@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row :align="alignment" :justify="justify"
+    <v-row
       ><v-col col cols="12"
         ><h3 class="text-md-center">{{ pageName }}</h3></v-col
       ></v-row

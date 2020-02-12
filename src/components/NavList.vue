@@ -35,13 +35,13 @@ export default {
         text: 'About the frontend',
         icon: 'mdi-flip-to-front',
         description: 'See how I made the frontend.',
-        routerLink: 'cancer-predictor'
+        routerLink: 'frontend-info'
       },
       {
         text: 'About the backend',
         icon: 'mdi-flip-to-back',
         description: 'Learn how I made the backend and implemented it.',
-        routerLink: 'cancer-predictor'
+        routerLink: 'backend-info'
       }
     ]
   }),

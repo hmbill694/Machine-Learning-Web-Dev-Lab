@@ -86,7 +86,7 @@ export default {
                 I'm not quite sure yet.`
       },
       {
-        title: `The Cancer Predictor`,
+        title: `The Ca`,
         content: `This application will tell if a given presentation of an a finding during a breast exam has the potential to be cancerous
                 based on some provided  data. This is the first neural network that I have ever made
                 from scratch and serves mostly as a way for me to really hammer out the way in which

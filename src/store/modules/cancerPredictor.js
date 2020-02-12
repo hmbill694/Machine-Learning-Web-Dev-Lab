@@ -34,33 +34,39 @@ export default {
     cancerPatients: [
       {
         name: 'P123',
+        radius: '2.0',
         texture: 'rough',
         perimeter: '1.2',
         area: '2.2',
         smoothness: '7',
+        compactness: '1',
         concavitypoints: '3',
         symmetry: '10',
-        fractialDimension: '43'
+        fractaldimension: '43'
       },
       {
         name: 'P123',
+        radius: '2.0',
         texture: 'rough',
         perimeter: '1.2',
         area: '2.2',
         smoothness: '7',
+        compactness: '1',
         concavitypoints: '3',
         symmetry: '10',
-        fractialDimension: '43'
+        fractaldimension: '43'
       },
       {
         name: 'P123',
+        radius: '2.0',
         texture: 'rough',
         perimeter: '1.2',
         area: '2.2',
         smoothness: '7',
+        compactness: '1',
         concavitypoints: '3',
         symmetry: '10',
-        fractialDimension: '43'
+        fractaldimension: '43'
       }
     ],
     title: 'About the App',
