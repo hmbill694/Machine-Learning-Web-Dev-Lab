@@ -1,6 +1,7 @@
 import random
 import numpy as np
-import pandas as pd
+from sklearn.externals import joblib
+
 
 
 class NeuralNetwork:
@@ -108,12 +109,12 @@ class NeuralNetwork:
             error.append(np.dot(layer.transpose(), error[index]))
         self.error = list(reversed(error))
 
-    def create_deltas(self, learning_rate, weight_matrix, bias_matrix, error_matrix, activations):
+    def create_deltas(self):
         """This method will find the changes to each of the weights and biases in the network
             it will then return these two lists of deltas"""
 
         # lambda function to apply the derivative of sigmoid to the activations array
-        vectorized_sigmoid_prime = lambda x: self.sigmoid_prime(x)
+        def vectorized_sigmoid_prime(x): return self.sigmoid_prime(x)
 
         # lists to contain the delta for each layer's weights and biases
         delta_weights = []
@@ -121,14 +122,14 @@ class NeuralNetwork:
 
         # the gradients found from applying the sigmoid prime to the activations, omitting the first layer
         # which is the inputs, these cannot be altered
-        gradients = [vectorized_sigmoid_prime(layer) for layer in activations[1:]]
+        gradients = [vectorized_sigmoid_prime(layer) for layer in self.activations[1:]]
 
         # iterate over the errors, gradients, weights, biases, and activations
         # applying the function delta_weight_layer = Gradient * lr * Error Layer * activation.T
         # the delta_biases = gradients for that layer
-        for _, error_layer, gradient, activation, bias in zip(weight_matrix, error_matrix, gradients, activations,
-                                                              bias_matrix):
-            gradient = np.multiply(gradient, learning_rate)
+        for _, error_layer, gradient, activation, bias in zip(self.weights, self.error, gradients, self.activations,
+                                                              self.biases):
+            gradient = np.multiply(gradient, self.learning_rate)
             gradient = np.multiply(gradient, error_layer)
             delta_layer = np.multiply(activation.transpose(), gradient)
             delta_weights.append(delta_layer)
@@ -149,11 +150,19 @@ class NeuralNetwork:
             known_output = test_item_pair[1]
             self.feed_forward(test_item_pair[0])
             self.back_propagate_error(known_output, self.output)
-            delta_weight_matrix, delta_biases_matrix = self.create_deltas(self.learning_rate, self.weights,
-                                                                          self.biases, self.error, self.activations)
+            delta_weight_matrix, delta_biases_matrix = self.create_deltas()
             # adjust weights and biases by delta for the layer
             self.weights = np.add(self.weights, delta_weight_matrix)
             self.biases = np.add(self.biases, delta_biases_matrix)
 
     def guess(self, input_list):
+        """Given a sample input list show what the network would output"""
         return self.feed_forward(input_list, True)
+
+    @staticmethod
+    def save_network(network, file_name):
+        joblib.dump(network,file_name)
+
+    @staticmethod
+    def load_network(file_name):
+        return joblib.load(file_name)

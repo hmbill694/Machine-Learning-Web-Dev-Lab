@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import cancerPredictor from './modules/cancerPredictor'
+import flowerPredictor from './modules/flowerPredictor'
 import frontendInfo from './modules/frontendInfo'
 Vue.use(Vuex)
 
@@ -9,5 +9,5 @@ export default new Vuex.Store({
   getters: {},
   mutations: {},
   actions: {},
-  modules: { cancerPredictor, frontendInfo }
+  modules: { flowerPredictor, frontendInfo }
 })

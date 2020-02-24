@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import LandingPage from '../components/LandingPage'
-import CancerPredictor from '../components/CancerPredictor'
+import FlowerPredictor from '../components/FlowerPredictor'
 import FrontendInfo from '../components/FrontendInfo'
 import BackendInfo from '../components/BackendInfo'
 Vue.use(VueRouter)
@@ -13,9 +13,9 @@ const routes = [
     component: LandingPage
   },
   {
-    path: '/cancer-predictor',
-    name: 'CancerPredictor',
-    component: CancerPredictor
+    path: '/flower-predictor',
+    name: 'FlowerPredictor',
+    component: FlowerPredictor
   },
   {
     path: '/frontend-info',

@@ -1,8 +1,8 @@
 <template>
   <v-container>
     <GenericComp
-      :inputNames="cancerMarkers"
-      :memberList="cancerPatients"
+      :inputNames="flowerMarkers"
+      :memberList="flowerPatients"
       :title="title"
       :information="aboutInfo"
       :pageName="pageName"
@@ -14,15 +14,15 @@
 import GenericComp from './bodyComps/GenericComp'
 import { mapState } from 'vuex'
 export default {
-  name: 'CancerPredictor',
+  name: 'FlowerPredictor',
   components: {
     GenericComp
   },
   data: () => ({}),
   computed: {
-    ...mapState('cancerPredictor', [
-      'cancerMarkers',
-      'cancerPatients',
+    ...mapState('flowerPredictor', [
+      'flowerMarkers',
+      'flowerPatients',
       'title',
       'aboutInfo',
       'pageName'

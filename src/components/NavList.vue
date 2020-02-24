@@ -26,10 +26,10 @@ export default {
         routerLink: '/'
       },
       {
-        text: 'Cancer Predictor',
-        icon: 'mdi-charity',
-        description: `Based on several factors this predictor will identify potential breast cancer`,
-        routerLink: 'cancer-predictor'
+        text: 'Flower Predictor',
+        icon: 'mdi-flower',
+        description: `Will classify flowers into 3 seperate groups`,
+        routerLink: 'flower-predictor'
       },
       {
         text: 'About the frontend',

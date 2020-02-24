@@ -2,73 +2,21 @@ export default {
   namespaced: true,
   state: {
     // = data
-    cancerMarkers: [
+    flowerMarkers: [
       {
-        label: 'Radius'
+        label: 'Sepal Width'
       },
       {
-        label: 'Texture'
+        label: 'Sepal Length'
       },
       {
-        label: 'Perimeter'
+        label: 'Pedal Length'
       },
       {
-        label: 'Area'
-      },
-      {
-        label: 'Smoothness'
-      },
-      {
-        label: 'Compactness'
-      },
-      {
-        label: 'ConcavityPoints'
-      },
-      {
-        label: 'Symmetry'
-      },
-      {
-        label: 'FractalDimension'
+        label: 'Pedal Width'
       }
     ],
-    cancerPatients: [
-      {
-        name: 'P123',
-        radius: '2.0',
-        texture: 'rough',
-        perimeter: '1.2',
-        area: '2.2',
-        smoothness: '7',
-        compactness: '1',
-        concavitypoints: '3',
-        symmetry: '10',
-        fractaldimension: '43'
-      },
-      {
-        name: 'P123',
-        radius: '2.0',
-        texture: 'rough',
-        perimeter: '1.2',
-        area: '2.2',
-        smoothness: '7',
-        compactness: '1',
-        concavitypoints: '3',
-        symmetry: '10',
-        fractaldimension: '43'
-      },
-      {
-        name: 'P123',
-        radius: '2.0',
-        texture: 'rough',
-        perimeter: '1.2',
-        area: '2.2',
-        smoothness: '7',
-        compactness: '1',
-        concavitypoints: '3',
-        symmetry: '10',
-        fractaldimension: '43'
-      }
-    ],
+    flowerPatients: [],
     title: 'About the App',
     aboutInfo: [
       {
@@ -101,6 +49,6 @@ export default {
                   these networks function`
       }
     ],
-    pageName: 'Cancer Classifier'
+    pageName: 'Flower Classifier'
   }
 }
