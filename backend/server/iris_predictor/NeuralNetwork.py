@@ -4,7 +4,6 @@ import joblib
 import numpy as np
 
 
-
 class NeuralNetwork:
     def __init__(self, arch, inputs, outputs, learning_rate):
         self.arch = arch
@@ -179,19 +178,31 @@ class NeuralNetwork:
 
     def guess(self, input_list):
         """Given a sample input list show what the network would output"""
-        return self.__feed_forward(input_list, True).transpose().flatten()
+
+        return NeuralNetwork.__normalize(self.__feed_forward(input_list, True).transpose().flatten())
 
     def test_network(self):
+        """This method will evaluate a trained network in against it's test set and set its accuracy based on the
+            number it gets correct"""
         total_tests = len(self.testing_set)
         total_correct = 0
-        vectorized_normalize = np.vectorize(lambda x: 1.0 if x >= .5 else 0.0)
         for member in self.testing_set:
             guess = self.guess(member[0])
-            guess = vectorized_normalize(guess)
+            guess = NeuralNetwork.__normalize(guess)
             if np.array_equal(guess, member[1]):
                 total_correct += 1
 
         self.accuracy = total_correct / total_tests
+
+    @staticmethod
+    def __normalize(input_arr):
+        """This method will take a numpy array and return it normalized
+            where values >.5 are set to 0 and values greater than 5 are
+            set to 1"""
+        norm = np.vectorize(lambda x: 1.0 if x >= .5 else 0.0)
+        return norm(input_arr)
+
+
 
     @staticmethod
     def save_network(network, file_name):
