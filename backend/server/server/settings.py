@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
     'corsheaders',
+    'rest_framework',
     'iris_predictor'
     
 ]
@@ -127,4 +127,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-CORS_ORIGIN_WHITELIST = ['https://localhost:8080']
+CORS_ORIGIN_WHITELIST = ['http://localhost:8080']
