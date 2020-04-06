@@ -2,17 +2,20 @@
   <v-container>
     <GenericComp
       :inputNames="flowerMarkers"
-      :memberList="flowerPatients"
+      :memberList="flowerGuesses"
       :title="title"
       :information="aboutInfo"
       :pageName="pageName"
+      :guesses="flowerGuesses"
+      @autoGenAdd="add"
+      @autoGenDelete="clear"
     />
   </v-container>
 </template>
 
 <script>
 import GenericComp from './bodyComps/GenericComp'
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'FlowerPredictor',
   components: {
@@ -25,8 +28,15 @@ export default {
       'flowerPatients',
       'title',
       'aboutInfo',
-      'pageName'
+      'pageName',
+      'flowerGuesses'
     ])
+  },
+  methods: {
+    ...mapActions('flowerPredictor', {
+      add: 'addGuess',
+      clear: 'clearGuesses'
+    })
   }
 }
 </script>

@@ -2,11 +2,11 @@
   <v-container>
     <v-list>
       <v-list-item-group>
-        <v-list-item v-for="(item, index) in items" :key="index">
+        <v-list-item v-for="(item, index) in itemsArray" :key="index">
           <v-list-item-content>
-            <v-list-item-title> Guessed: {{ item.guess }} </v-list-item-title>
+            <v-list-item-title> Guessed: {{ item.guessed }} </v-list-item-title>
             <v-list-item-subtitle>
-              Real Value: {{ item.real }}
+              Real Value: {{ item.actual }}
             </v-list-item-subtitle>
           </v-list-item-content>
           <v-list-item-icon>
@@ -26,28 +26,18 @@
 <script>
 export default {
   name: 'PriorGuessList',
-  data: () => ({
-    items: [
-      {
-        guess: 13,
-        real: 13,
-        correct: true
-      },
-      {
-        guess: 14,
-        real: 14,
-        correct: true
-      },
-      {
-        guess: 7,
-        real: 9,
-        correct: false
-      }
-    ]
-  }),
+  props: {
+    items: Array
+  },
+  data: () => ({}),
   methods: {
     listIcon(item) {
       return item.correct ? 'mdi-check' : 'mdi-close'
+    }
+  },
+  computed: {
+    itemsArray() {
+      return this.items
     }
   }
 }

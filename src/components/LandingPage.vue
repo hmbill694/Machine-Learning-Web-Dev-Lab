@@ -1,67 +1,55 @@
 <template>
-  <v-parallax
-    dark
-    src="./../assets/blue-red-and-yellow-abstract-painting-1566987.jpg"
-    height="100%"
-  >
+  <v-container id="background" fluid>
+    <v-row align="center" justify="center"
+      ><v-col cols="3" v-for="i in appCardContent" :key="i">
+        <AppCard
+          :name="i.name"
+          :description="i.description"
+          :link="i.routerLink"
+          :img="i.img"
+        />
+      </v-col>
+    </v-row>
     <v-row align="center" justify="center">
-      <v-col class="text-center" cols="12">
-        <v-card>
-          <v-card-title class="headline">
-            My Machine Learning Lab
-          </v-card-title>
-          <v-card-subtitle>
-            Your what Now??
-          </v-card-subtitle>
-          <v-card-text class="headline font-weight-medium">
-            This web-app will serve as a repository for all of my machine
-            learning projects. I figure it's a bit more impressive than a
-            showing someone a command line application.
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col class="text-center" cols="12">
-        <v-card>
-          <v-card-title class="headline">
-            About Me
-          </v-card-title>
-          <v-card-text class="headline font-weight-medium"
-            >So, alittle about myself. My name is Harrison Billings. If you look
-            hard enough you can see my name at the bottom of the screen in
-            header. I'm a computer science student at ASU and will be graduating
-            in December of 2020. Prior to my time in the Computer Science
-            program, I was pursuing a degree in psychology with the intention of
-            going to medical school. I switched to CS my sophmore year because
-            my roommate at the time was in CS and I found myself incredibly
-            interested in his homework and courses but didn't seem to care about
-            mine. Since switching into the program I have found a passion for
-            both web development and as of late, AI/Machine Learning. The
-            potential for the technology has me both terrified and excited! I
-            figure the best way to make sure we dont end up with our very own
-            SkyNet is to influence the field from within.
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col class="text-center" cols="12">
+      <v-col class="text-center" cols="8">
+        <h2>Lastest Projects</h2>
         <InfoPanel :title="infoTitle" :information="siteInfo" />
       </v-col>
     </v-row>
-  </v-parallax>
+  </v-container>
 </template>
 
 <script>
 import InfoPanel from './bodyComps/InfoPanel'
+import AppCard from './bodyComps/AppCard'
 export default {
   name: 'LandingPage',
   components: {
-    InfoPanel
+    InfoPanel,
+    AppCard
   },
   data: () => ({
-    infoTitle: 'What in the App',
+    infoTitle: `What's in the App`,
+    appCardContent: [
+      {
+        name: 'Flower Predictor',
+        description: `Using a neural network predict the kind of iris flower given 4 characteristics.`,
+        routerLink: 'flower-predictor',
+        img: '../assets/iris-2502898_640.jpg'
+      },
+      {
+        name: 'Flower Predictor',
+        description: `Using a neural network predict the kind of iris flower given 4 characteristics.`,
+        routerLink: 'flower-predictor',
+        img: '../assets/iris-2502898_640.jpg'
+      },
+      {
+        name: 'Flower Predictor',
+        description: `Using a neural network predict the kind of iris flower given 4 characteristics.`,
+        routerLink: 'flower-predictor',
+        img: '../assets/neural-network-3637503_640.png'
+      }
+    ],
     siteInfo: [
       {
         title: `Goal of the Site`,
@@ -86,13 +74,20 @@ export default {
                 I'm not quite sure yet.`
       },
       {
-        title: `The Ca`,
-        content: `This application will tell if a given presentation of an a finding during a breast exam has the potential to be cancerous
-                based on some provided  data. This is the first neural network that I have ever made
-                from scratch and serves mostly as a way for me to really hammer out the way in which
-                these networks function`
+        title: `The Flower Predictior`,
+        content: `This bit of functionality will use a toy nueral network built in another project. It will
+                  given a set of inputs from it's test set will generate a guess about what kind of flower it is.
+                  `
       }
     ]
   })
 }
 </script>
+
+<style scoped>
+#background {
+  max-width: 100%;
+  height: 100%;
+  background-image: url('../assets/multicolored-abstract-painting-1570779.jpg');
+}
+</style>

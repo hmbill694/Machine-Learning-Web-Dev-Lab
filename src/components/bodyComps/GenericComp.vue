@@ -5,14 +5,17 @@
         ><h3 class="text-md-center">{{ pageName }}</h3></v-col
       ></v-row
     >
-    <PriorGuessList />
+    <PriorGuessList :items="guesses" />
     <v-tabs>
-      <v-tab ripple>Manual Entry</v-tab>
       <v-tab ripple>Auto Generate</v-tab>
       <v-tab ripple>About</v-tab>
-      <v-tab-item> <DataEntry :inputNames="inputNames" /> </v-tab-item>
       <v-tab-item>
-        <AutoGen :inputNames="inputNames" :memberList="memberList" />
+        <AutoGen
+          :inputNames="inputNames"
+          :memberList="memberList"
+          @autoGenAdd="emitAutoGenAdd"
+          @autoGenDelete="emitAutoGenDelete"
+        />
       </v-tab-item>
       <v-tab-item>
         <InfoPanel :title="title" :information="information"
@@ -22,14 +25,12 @@
 </template>
 
 <script>
-import DataEntry from './DataEntry'
 import PriorGuessList from './PriorGuessList'
 import AutoGen from './AutoGen'
 import InfoPanel from './InfoPanel'
 export default {
   name: 'GenericComp',
   components: {
-    DataEntry,
     PriorGuessList,
     AutoGen,
     InfoPanel
@@ -39,7 +40,16 @@ export default {
     memberList: Array,
     title: String,
     information: Array,
-    pageName: String
+    pageName: String,
+    guesses: Array
+  },
+  methods: {
+    emitAutoGenAdd() {
+      this.$emit('autoGenAdd')
+    },
+    emitAutoGenDelete() {
+      this.$emit('autoGenDelete')
+    }
   }
 }
 </script>
