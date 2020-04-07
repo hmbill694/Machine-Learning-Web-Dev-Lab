@@ -1,19 +1,33 @@
 <template>
   <v-container id="background" fluid>
-    <v-row align="center" justify="center"
-      ><v-col cols="3" v-for="i in appCardContent" :key="i">
-        <AppCard
-          :name="i.name"
-          :description="i.description"
-          :link="i.routerLink"
-          :img="i.img"
-        />
-      </v-col>
-    </v-row>
-    <v-row align="center" justify="center">
-      <v-col class="text-center" cols="8">
-        <h2>Lastest Projects</h2>
-        <InfoPanel :title="infoTitle" :information="siteInfo" />
+    <v-row>
+      <v-col cols="12">
+        <v-container id="content-holder">
+          <v-row>
+            <v-col>
+              <v-row>
+                <v-col cols="12">
+                  <v-card>
+                    <v-card-title>Latest additions to The Lab</v-card-title>
+                  </v-card>
+                </v-col>
+                <v-col cols="4" v-for="i in appCardContent" :key="i.key">
+                  <AppCard
+                    :name="i.name"
+                    :description="i.description"
+                    :link="i.routerLink"
+                    :img="i.img"
+                  />
+                </v-col>
+              </v-row>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="12">
+              <InfoPanel :title="infoTitle" :information="siteInfo" />
+            </v-col>
+          </v-row>
+        </v-container>
       </v-col>
     </v-row>
   </v-container>
@@ -32,22 +46,25 @@ export default {
     infoTitle: `What's in the App`,
     appCardContent: [
       {
+        key: 1,
         name: 'Flower Predictor',
         description: `Using a neural network predict the kind of iris flower given 4 characteristics.`,
         routerLink: 'flower-predictor',
-        img: '../assets/iris-2502898_640.jpg'
+        img: 'iris-2502898_640.jpg'
       },
       {
-        name: 'Flower Predictor',
+        key: 2,
+        name: 'Digit Recognizer',
         description: `Using a neural network predict the kind of iris flower given 4 characteristics.`,
         routerLink: 'flower-predictor',
-        img: '../assets/iris-2502898_640.jpg'
+        img: 'business-code-coding-computer-270360.jpg'
       },
       {
-        name: 'Flower Predictor',
+        key: 3,
+        name: 'About the Backend',
         description: `Using a neural network predict the kind of iris flower given 4 characteristics.`,
         routerLink: 'flower-predictor',
-        img: '../assets/neural-network-3637503_640.png'
+        img: 'green-and-beige-cord-1624895.jpg'
       }
     ],
     siteInfo: [
@@ -89,5 +106,10 @@ export default {
   max-width: 100%;
   height: 100%;
   background-image: url('../assets/multicolored-abstract-painting-1570779.jpg');
+}
+
+#content-holder {
+  background-color: rgba(119, 136, 153, 0.9);
+  border-radius: 6px;
 }
 </style>
